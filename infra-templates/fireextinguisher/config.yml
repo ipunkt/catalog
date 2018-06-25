@@ -1,7 +1,5 @@
-name: Fire(wall) extinguisher
+name: Firewall extinguisher
 description: |
   Logs into target hosts and allows firewall access to the rancher droplets
-version: 0.1.0
+version: 1.0.0
 category: Firewall
-labels:
-  io.rancher.orchestration.supported: 'cattle'
