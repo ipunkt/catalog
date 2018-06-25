@@ -1,4 +1,21 @@
 version: '2'
+catalog:
+  questions:
+    - variable: PORT
+      label: Port to Firewall
+      # The description of the question to show the user how to answer the question.
+      description: | 
+        The port which will be firewalled on the ohsts
+      default: 111
+      required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: string # How the questions are formatted and types of response expected
+    - variable: ALLOWED_ADDRESSES
+      label: Allowed Addresses
+      # The description of the question to show the user how to answer the question.
+      description: | 
+        Addresse allowed to access the port
+      required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: string # How the questions are formatted and types of response expected
 services:
   Firewall:
     start_on_create: true
