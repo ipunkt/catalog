@@ -1,6 +1,6 @@
 version: '2'
 services:
-  NFS-Access:
+  Fire-Extinguisher:
     image: ipunktbs/ansible-ufw:1.0.0
     environment:
       HOSTS: ${HOSTS}

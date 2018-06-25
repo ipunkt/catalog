@@ -1,6 +1,6 @@
 version: '2'
 catalog:
-  name: NFS-Access
+  name: Fire-Extinguisher
   version: 1.0.0
   description: Allow firewall access to the nfs port on nfs servers to all rancher hosts
   minimum_rancher_version: 1.6.0
@@ -35,5 +35,5 @@ catalog:
       required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
       type: multiline # How the questions are formatted and types of response expected
 services:
-  NFS-Access:
+  Fire-Extinguisher:
     start_on_create: true

@@ -1,6 +1,6 @@
-name: Allow NFS Access
+name: Fire(wall) extinguisher
 description: |
-  Log into NFS Servers to grant firewall access to the environment hosts.
+  Logs into target hosts and allows firewall access to the rancher droplets
 verison: 0.1.0
 category: Storage
 labels:
