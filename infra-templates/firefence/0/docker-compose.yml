@@ -1,6 +1,6 @@
 version: '2'
 services:
-  Firewall:
+  Firefence:
     cap_add:
     - NET_ADMIN
     image: ipunktbs/firewall-port:1.0.0

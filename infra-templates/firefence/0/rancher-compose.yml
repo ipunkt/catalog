@@ -1,5 +1,9 @@
 version: '2'
 catalog:
+  name: Fire fence
+  version: 0.1.0
+  description: Use iptables to firewall off a list of ports
+  minimum_rancher_version: 1.6.0
   questions:
     - variable: PORT
       label: Port to Firewall
@@ -17,5 +21,5 @@ catalog:
       required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
       type: string # How the questions are formatted and types of response expected
 services:
-  Firewall:
+  Firefence:
     start_on_create: true
