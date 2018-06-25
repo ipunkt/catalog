@@ -1,5 +1,9 @@
 version: '2'
 catalog:
+  name: Balancer
+  version: 1.0.0
+  description: Create firewall hosts
+  minimum_rancher_version: 1.6.0
   questions:
     - variable: HOSTS
       label: Hostnames

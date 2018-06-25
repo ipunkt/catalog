@@ -1,7 +1,7 @@
 name: Fire fence
 description: |
   Use iptables to firewall off a list of porst for all hosts, only allowing access from specified ips
-verison: 0.1.0
+version: 0.1.0
 category: Firewall
 maintainer: Sven Speckmaier
 license: MIT
