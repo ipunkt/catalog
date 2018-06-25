@@ -1,6 +1,6 @@
 name: Fire fence
 description: |
-  Use iptables to firewall off a list of porst for all hosts, only allowing access from specified ips
+  Use iptables to firewall off a list of ports for all hosts, only allowing access from specified ips
 version: 0.1.0
 category: Firewall
 maintainer: Sven Speckmaier
