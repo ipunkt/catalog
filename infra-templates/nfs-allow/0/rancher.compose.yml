@@ -1,5 +1,9 @@
 version: '2'
 catalog:
+  name: NFS-Access
+  version: 1.0.0
+  description: Allow firewall access to the nfs port on nfs servers to all rancher hosts
+  minimum_rancher_version: 1.6.0
   questions:
     - variable: HOSTS
       label: NFS Hosts
