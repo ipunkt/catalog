@@ -1,0 +1,35 @@
+version: '2'
+catalog:
+  questions:
+    - variable: HOSTS
+      label: Hostnames
+      # The description of the question to show the user how to answer the question.
+      description: | 
+        Comma separated list of hostnames which will be created
+      default: lb01,lb02
+      required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: string # How the questions are formatted and types of response expected
+    - variable: HCLOUD_TOKEN
+      label: Hetzner Cloud token
+      # The description of the question to show the user how to answer the question.
+      description: | 
+        Hetzner cloud token to create the hosts and manage the floating ip with
+      required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: string # How the questions are formatted and types of response expected
+    - variable: PRIVATKEY
+      label: Private ssh key with which to connect to the machines
+      # The description of the question to show the user how to answer the question.
+      description: | 
+        Private ssh key
+      required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: multiline # How the questions are formatted and types of response expected
+    - variable: PUBLICKEY
+      label: Public ssh key
+      # The description of the question to show the user how to answer the question.
+      description: | 
+        Public ssh key matching the Private ssh key. Will be added to the machines\' root authorized_keys
+      required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
+      type: multiline # How the questions are formatted and types of response expected
+services:
+  CreateLoadbalancer:
+    start_on_create: true
