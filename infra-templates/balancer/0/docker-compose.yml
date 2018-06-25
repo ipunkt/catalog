@@ -1,6 +1,6 @@
 version: '2'
 services:
-  CreateLoadbalancer:
+  Balancer:
     image: "debian:stable"
     environment:
       HOSTS: ${HOSTS}

@@ -31,5 +31,5 @@ catalog:
       required: true # (Optional) Whether or not an answer is required. By default, it's considered `false`.
       type: multiline # How the questions are formatted and types of response expected
 services:
-  CreateLoadbalancer:
+  Balancer:
     start_on_create: true
