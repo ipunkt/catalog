@@ -1,0 +1,15 @@
+version: '2'
+services:
+  Firewall:
+    cap_add:
+    - NET_ADMIN
+    image: ipunktbs/firewall-port:1.0.0
+    environment:
+      PORT: ${PORT}
+      ALLOWED_ADDRESSES: ${ALLOWED_ADDRESSES}
+    stdin_open: true
+    network_mode: host
+    tty: true
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.global: 'true'

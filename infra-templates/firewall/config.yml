@@ -1,0 +1,7 @@
+name: iptables Firewall Port
+description: |
+  Use iptables to firewall off a certain port for all hosts, only allowing access from specified ips
+verison: 0.1.0
+category: Firewall
+labels:
+  io.rancher.orchestration.supported: 'cattle'

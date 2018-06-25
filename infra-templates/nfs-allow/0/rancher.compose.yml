@@ -1,0 +1,4 @@
+version: '2'
+services:
+  NFS-Access:
+    start_on_create: true

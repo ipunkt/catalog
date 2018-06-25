@@ -1,0 +1,7 @@
+version: '2'
+services:
+  CreateLoadbalancer:
+    image: "debian:stable"
+    labels:
+      io.rancher.container.create_agent: true
+      io.rancher.container.agent.role: environmentAdmin,agent

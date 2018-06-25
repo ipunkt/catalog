@@ -1,0 +1,7 @@
+name: Allow NFS Access
+description: |
+  Log into NFS Servers to grant firewall access to the environment hosts.
+verison: 0.1.0
+category: Storage
+labels:
+  io.rancher.orchestration.supported: 'cattle'
