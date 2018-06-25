@@ -3,3 +3,6 @@ description: |
   Logs into target hosts and allows firewall access to the rancher droplets
 version: 1.0.0
 category: Firewall
+maintainer: Sven Speckmaier
+license: MIT
+projectURL: https://github.com/ipunkt/docker-ansible-ufw
