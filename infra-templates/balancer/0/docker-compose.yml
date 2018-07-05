@@ -5,7 +5,6 @@ volumes:
 services:
   Balancer:
     image: "ipunktbs/hetzner-lb"
-    command: wait
     restart: "no"
     environment:
       SERVERS: "${SERVERS}"
