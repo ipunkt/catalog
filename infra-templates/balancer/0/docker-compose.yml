@@ -1,6 +1,6 @@
 version: '2'
 volumes:
-  ${VOLUME}:
+  {{$VOLUME}}:
     driver: ${VOLUME_DRIVER}
 services:
   Balancer:
@@ -18,7 +18,7 @@ services:
       PUBLIC_KEY: |-
         ${PUBLIC_KEY}
     volumes:
-      ${VOLUME}: /data
+      - "${VOLUME}:/data"
     labels:
       io.rancher.container.create_agent: true
       io.rancher.container.agent.role: environmentAdmin,agent
