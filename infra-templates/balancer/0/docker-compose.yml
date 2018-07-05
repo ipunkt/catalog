@@ -14,9 +14,9 @@ services:
       FLOATING_IP: "${FLOATING_IP}"
       CLUSTER_USER_PASSWORD: "${CLUSTER_USER_PASSWORD}"
       PRIVATE_KEY: |-
-        ${PRIVATKEY}
+        ${PRIVAT_KEY}
       PUBLIC_KEY: |-
-        ${PUBLICKEY}
+        ${PUBLIC_KEY}
     labels:
       io.rancher.container.create_agent: true
       io.rancher.container.agent.role: environmentAdmin,agent
