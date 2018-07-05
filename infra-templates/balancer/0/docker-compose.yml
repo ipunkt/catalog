@@ -17,6 +17,8 @@ services:
         ${PRIVAT_KEY}
       PUBLIC_KEY: |-
         ${PUBLIC_KEY}
+    volumes:
+      ${VOLUME}: /data
     labels:
       io.rancher.container.create_agent: true
       io.rancher.container.agent.role: environmentAdmin,agent
