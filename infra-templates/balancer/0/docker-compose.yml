@@ -1,6 +1,6 @@
 version: '2'
 volumes:
-  {{$VOLUME}}:
+  {{ .Values.VOLUME }}:
     driver: ${VOLUME_DRIVER}
 services:
   Balancer:
