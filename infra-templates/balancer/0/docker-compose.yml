@@ -6,7 +6,7 @@ services:
   Balancer:
     image: "ipunktbs/hetzner-lb"
     command: wait
-    restart: no
+    restart: "no"
     environment:
       SERVERS: "${SERVERS}"
       HCLOUD_TOKEN: "${HCLOUD_TOKEN}"
