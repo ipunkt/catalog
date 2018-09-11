@@ -1,0 +1,72 @@
+version: '2'
+catalog:
+  name: Balancer
+  version: 1.1.0
+  description: Create firewall hosts
+  minimum_rancher_version: 1.6.0
+  questions:
+    - variable: SERVERS
+      label: Hostnames
+      description: |
+        Colon separated list of hostnames which will be created
+      default: lb01:lb02
+      required: true
+      type: string
+    - variable: HCLOUD_TOKEN
+      label: Hetzner Cloud token
+      description: |
+        Hetzner cloud token to create the hosts and manage the floating ip with
+      required: true
+      type: string
+    - variable: VOLUME
+      default: clusterini
+      label: Volume Name
+      description: |
+        The name of the volume in which the generated information is stored. See `Persistence` in the information above
+      required: true
+      type: string
+    - variable: VOLUME_DRIVER
+      default: rancher-nfs
+      label: Volume Driver
+      description: |
+        The volume driver for the generated information. See `Persistence` in the information above
+      required: true
+      type: string
+    - variable: HOST_LABELS
+      default: lb=true
+      label: Host Labels
+      description: |
+        The Host labels which will be set on the rancher host entries.
+        Format: Labelname=Labelvalue
+        Multiple labels are separated by `&`
+    - variable: FLOATING_IP
+      default: Loadbalancer
+      label: Floating IP Name
+      description: |
+        This name will be used as subscription on the foating ip address. DO NOT EDIT THIS AFTERWARDS
+        If no floating ip with this description is present then one will be created.
+      required: true
+      type: string
+    - variable: CLUSTER_USER_PASSWORD
+      default:
+      label: Cluster User Password
+      description: |
+        Password for the cluster user used to authenticate the machines among eachother.
+      required: false
+      type: string
+    - variable: PRIVATE_KEY
+      label: Private SSH key
+      description: |
+        Private ssh key matching the PUBLIC_KEY
+      required: false
+      type: multiline
+    - variable: PUBLIC_KEY
+      label: Public SSH key
+      description: |
+        Public ssh key matching the Private ssh key. Will be added to the machines\' root authorized_keys.
+        Leave empty
+      required: false
+      type: multiline
+services:
+  Balancer:
+    start_on_create: true

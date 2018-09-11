@@ -1,0 +1,25 @@
+version: '2'
+volumes:
+  {{ .Values.VOLUME }}:
+    driver: ${VOLUME_DRIVER}
+services:
+  Balancer:
+    image: "ipunktbs/hetzner-lb:1.1.0"
+    restart: "no"
+    environment:
+      SERVERS: "${SERVERS}"
+      HCLOUD_TOKEN: "${HCLOUD_TOKEN}"
+      HOST_LABELS: "${HOST_LABELS}"
+      FLOATING_IP: "${FLOATING_IP}"
+      CLUSTER_USER_PASSWORD: "${CLUSTER_USER_PASSWORD}"
+      PRIVATE_KEY: |-
+        ${PRIVAT_KEY}
+      PUBLIC_KEY: |-
+        ${PUBLIC_KEY}
+    volumes:
+      - "${VOLUME}:/data"
+    labels:
+      io.rancher.container.create_agent: true
+      io.rancher.container.agent.role: environmentAdmin,agent
+      io.rancher.container.start_once: true
+      io.rancher.container.pull_image: always
