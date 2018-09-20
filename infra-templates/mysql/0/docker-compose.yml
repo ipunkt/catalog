@@ -3,7 +3,7 @@ volumes:
   {{ .Values.VOLUME }}:
     driver: ${VOLUME_DRIVER}
 services:
-  Balancer:
+  MySQL:
     image: "ipunktbs/hetzner-mariadb:latest"
     restart: "no"
     environment:

@@ -20,7 +20,7 @@ catalog:
       required: true
       type: string
     - variable: SERVER_TYPE
-      label: hetzner cloud server type to create
+      label: Server type
       description: |
         hetzner cloud server type to be created. Changing this after the hosts
         have been built will not change the type.
@@ -34,6 +34,20 @@ catalog:
         - cx31
         - cx41
         - cx51
+    - variable: SERVER_LOCATION
+      label: Server location
+      description: |
+        datacenter for the server to be created in. Changing this after the hosts
+        have been built will not change the type.
+        Scaling them manually can be done but is not supported by this service
+        as of yet
+      default: fsn1
+      required: true
+      type: enum
+      options:
+        - fsn1
+        - nbg1
+        - hel1
     - variable: HCLOUD_TOKEN
       label: Hetzner Cloud token
       description: |
@@ -122,5 +136,5 @@ catalog:
       required: false
       type: multiline
 services:
-  Balancer:
+  MySQL:
     start_on_create: true
