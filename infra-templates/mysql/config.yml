@@ -1,0 +1,7 @@
+name: Hetzner Cloud MySQL
+description: |
+  Create 2 hosts in hetzner cloud sharing a floating ip and a mariadb on drbd
+version: 0.1.0
+category: Loadbalancer
+labels:
+  io.rancher.orchestration.supported: 'cattle'

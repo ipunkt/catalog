@@ -1,0 +1,125 @@
+version: '2'
+catalog:
+  name: MySQL
+  version: 0.1.0-alpha
+  description: Create highly available mysql on cloud hosts
+  minimum_rancher_version: 1.6.0
+  questions:
+    - variable: SERVER1
+      label: Server1 Hostname
+      description: |
+        Host- and Apiname of the first cloudserver to be creatd
+      default: mysql01
+      required: true
+      type: string
+    - variable: SERVER2
+      label: Server2 Hostname
+      description: |
+        Host- and Apiname of the first cloudserver to be creatd
+      default: mysql02
+      required: true
+      type: string
+    - variable: SERVER_TYPE
+      label: hetzner cloud server type to create
+      description: |
+        hetzner cloud server type to be created. Changing this after the hosts
+        have been built will not change the type.
+        Scaling them manually can be done but is not supported by this service
+        as of yet
+      default: cx21
+      required: true
+      type: enum
+      options:
+        - cx21
+        - cx31
+        - cx41
+    - variable: HCLOUD_TOKEN
+      label: Hetzner Cloud token
+      description: |
+        Hetzner cloud token to create the hosts and manage the floating ip with
+      required: true
+      type: string
+    - variable: ADMIN_USERNAME
+      label: MySQL admin user
+      description: |
+        Username for the admin user of the database.
+        Note that this user will be recreated on each run of the image so setting
+        this to something insecure and later deleting or changing the user will
+        not work
+      required: true
+      type: string
+      default: admin
+    - variable: ADMIN_PASSWORD
+      label: MySQL admin password
+      description: |
+        Password for the admin user of the database.
+        Note that this user will be recreated on each run of the image so setting
+        this to something insecure and later deleting or changing the user will
+        not work
+      required: true
+      type: string
+    - variable: VOLUME
+      default: clusterini
+      label: Volume Name
+      description: |
+        The name of the volume in which the generated information is stored. See `Persistence` in the information above
+      required: true
+      type: string
+    - variable: VOLUME_DRIVER
+      default: rancher-nfs
+      label: Volume Driver
+      description: |
+        The volume driver for the generated information. See `Persistence` in the information above
+      required: true
+      type: string
+    - variable: FLOATING_IP
+      default: mysql
+      label: Floating IP api and pacemaker resource name
+      description: |
+        This name will be used as subscription on the foating ip address. DO NOT EDIT THIS AFTERWARDS
+        If no floating ip with this description is present then one will be created.
+      required: true
+      type: string
+    - variable: CLUSTER_USER_PASSWORD
+      default:
+      label: Cluster User Password
+      description: |
+        Password for the cluster user used to authenticate the machines among eachother.
+      required: false
+      type: string
+    - variable: PRIVATE_KEY
+      label: Private SSH key
+      description: |
+        Private ssh key matching the PUBLIC_KEY
+      required: false
+      type: multiline
+    - variable: PUBLIC_KEY
+      label: Public SSH key
+      description: |
+        Public ssh key matching the Private ssh key. Will be added to the machines\' root authorized_keys.
+        Leave empty
+      required: false
+      type: multiline
+    - variable: BACKUPS
+      label: Write backups
+      description: |
+        If enabled then
+      required: true
+      type: boolean
+    - variable: BACKUP_URL
+      label: SFTP Url to store Backups
+      description: |
+        Public ssh key matching the Private ssh key. Will be added to the machines\' root authorized_keys.
+        Leave empty
+      required: false
+      default: sftp://server/path
+      type: string
+    - variable: BACKUP_KEY
+      label: Private SSH key used to connect to the backup sftp server
+      description: |
+        Private ssh key matching
+      required: false
+      type: multiline
+services:
+  Balancer:
+    start_on_create: true
