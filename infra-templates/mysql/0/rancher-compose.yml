@@ -5,6 +5,22 @@ catalog:
   description: Create highly available mysql on cloud hosts
   minimum_rancher_version: 1.6.0
   questions:
+    - variable: EXTERNAL_SERVICE
+      label: External stack
+      description: |
+        Stack in which the services creates the external to the floating ip shared
+        by the created servers
+      default: Database
+      required: true
+      type: string
+    - variable: EXTERNAL_NAME
+      label: External stack
+      description: |
+        Name of the external this service creates with the floating ip shared by
+        the created servers
+      default: Database
+      required: true
+      type: string
     - variable: SERVER1
       label: Server1 Hostname
       description: |
