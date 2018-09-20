@@ -33,6 +33,7 @@ catalog:
         - cx21
         - cx31
         - cx41
+        - cx51
     - variable: HCLOUD_TOKEN
       label: Hetzner Cloud token
       description: |
