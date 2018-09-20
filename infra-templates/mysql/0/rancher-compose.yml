@@ -18,7 +18,7 @@ catalog:
       description: |
         Name of the external this service creates with the floating ip shared by
         the created servers
-      default: Database
+      default: mysql
       required: true
       type: string
     - variable: SERVER1
