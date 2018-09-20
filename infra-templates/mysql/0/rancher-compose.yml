@@ -14,7 +14,7 @@ catalog:
       required: true
       type: string
     - variable: EXTERNAL_NAME
-      label: External stack
+      label: External name
       description: |
         Name of the external this service creates with the floating ip shared by
         the created servers
