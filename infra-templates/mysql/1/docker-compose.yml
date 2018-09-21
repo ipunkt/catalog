@@ -7,6 +7,8 @@ services:
     image: "ipunktbs/hetzner-mariadb:1.0.0rc2"
     restart: "no"
     environment:
+      EXTERNAL_STACK: "${EXTERNAL_STACK}"
+      EXTERNAL_NAME: "${EXTERNAL_NAME}"
       SERVER1: "${SERVER1}"
       SERVER2: "${SERVER2}"
       SERVER_TYPE: "${SERVER_TYPE}"
