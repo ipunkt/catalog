@@ -1,0 +1,30 @@
+version: '2'
+volumes:
+  {{ .Values.VOLUME }}:
+    driver: ${VOLUME_DRIVER}
+services:
+  MySQL:
+    image: "ipunktbs/hetzner-mariadb:1.0.0rc2"
+    restart: "no"
+    environment:
+      SERVER1: "${SERVER1}"
+      SERVER2: "${SERVER2}"
+      SERVER_TYPE: "${SERVER_TYPE}"
+      HCLOUD_TOKEN: "${HCLOUD_TOKEN}"
+      FLOATING_IP: "${FLOATING_IP}"
+      CLUSTER_USER_PASSWORD: "${CLUSTER_USER_PASSWORD}"
+      PRIVATE_KEY: |-
+        ${PRIVAT_KEY}
+      PUBLIC_KEY: |-
+        ${PUBLIC_KEY}
+      BACKUPS: ${BACKUPS}
+      BACKUP_URL: "${BACKUP_URL}"
+      BACKUP_KEY:  |-
+        ${BACKUP_KEY}
+    volumes:
+      - "${VOLUME}:/data"
+    labels:
+      io.rancher.container.create_agent: true
+      io.rancher.container.agent.role: environmentAdmin,agent
+      io.rancher.container.start_once: true
+      io.rancher.container.pull_image: always
