@@ -18,7 +18,9 @@ services:
       PUBLIC_KEY: |-
         ${PUBLIC_KEY}
       BACKUPS: ${BACKUPS}
-      BACKUP_URL: "${BACKUP_URL}"
+      BACKUP_SERVER: "${BACKUP_SERVER}"
+      BACKUP_PATH: "${BACKUP_PATH}"
+      BACKUP_USER: "${BACKUP_USER}"
       BACKUP_KEY:  |-
         ${BACKUP_KEY}
     volumes:

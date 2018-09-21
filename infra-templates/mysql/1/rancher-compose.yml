@@ -156,7 +156,7 @@ catalog:
       description: |
         Backup User
       required: false
-      default: sftp.example.com
+      default: backup
       type: string
     - variable: BACKUP_KEY
       label: Private SSH key used to connect to the backup sftp server
