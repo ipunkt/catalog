@@ -4,7 +4,7 @@ volumes:
     driver: ${VOLUME_DRIVER}
 services:
   MySQL:
-    image: "ipunktbs/hetzner-mariadb:1.0.0rc3"
+    image: "ipunktbs/hetzner-mariadb:1.0.0rc6"
     restart: "no"
     environment:
       EXTERNAL_STACK: "${EXTERNAL_STACK}"
