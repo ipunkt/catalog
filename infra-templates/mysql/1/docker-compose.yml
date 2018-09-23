@@ -21,7 +21,7 @@ services:
         ${PRIVAT_KEY}
       PUBLIC_KEY: |-
         ${PUBLIC_KEY}
-      BACKUPS: ${BACKUPS}
+      BACKUP: ${BACKUPS}
       BACKUP_SERVER: "${BACKUP_SERVER}"
       BACKUP_PATH: "${BACKUP_PATH}"
       BACKUP_USER: "${BACKUP_USER}"
