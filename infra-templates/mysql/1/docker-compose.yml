@@ -4,7 +4,7 @@ volumes:
     driver: ${VOLUME_DRIVER}
 services:
   MySQL:
-    image: "ipunktbs/hetzner-mariadb:1.0.0rc8"
+    image: "ipunktbs/hetzner-mariadb:1.0.0rc9"
     restart: "no"
     environment:
       ADMIN_USERNAME: "${ADMIN_USERNAME}"
