@@ -15,9 +15,9 @@ catalog:
     type: enum
     options:
     - distribution
-    - 10.1
-    - 10.2
-    - 10.3
+    - "10.1"
+    - "10.2"
+    - "10.3"
     - variable: EXTERNAL_STACK
       label: External stack
       description: |
