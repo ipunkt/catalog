@@ -7,6 +7,7 @@ services:
     image: "ipunktbs/hetzner-mariadb:1.0.0"
     restart: "no"
     environment:
+      MARIADB_VERSION: "${MARIADB_VERSION}"
       ADMIN_USERNAME: "${ADMIN_USERNAME}"
       ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
       EXTERNAL_STACK: "${EXTERNAL_STACK}"
