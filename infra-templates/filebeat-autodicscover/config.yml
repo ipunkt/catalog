@@ -5,4 +5,3 @@ version: 1.0.0
 category: Logging
 maintainer: Carsten Pfeiffer
 license: MIT
-projectURL: https://github.com/ipunkt/docker-firewall-port
