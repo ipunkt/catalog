@@ -6,11 +6,8 @@ catalog:
 minimum_rancher_version: 1.6.0
 questions:
  - variable: HOSTURL
-   label: elasticsearch:9200
  - variable: PROTOCOL
-   label: http
  - variable: ENVIRONMENT
-   label: rancher
 services:
   filebeat-autodisc:
     start_on_create: true
