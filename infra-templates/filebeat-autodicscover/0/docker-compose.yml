@@ -15,3 +15,4 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     labels:
       io.rancher.scheduler.global: 'true'
+      io.rancher.container.pull_image: always
