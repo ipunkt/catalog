@@ -7,9 +7,9 @@ minimum_rancher_version: 1.6.0
 questions:
   - variable: HOSTURL
     label: Host
+    default: "elasticsearch:9200"
     description: |
       Your Host Adress for the Filebeat Logs
-    default: "elasticsearch:9200"
     required: true
     type: string
   - variable: PROTOCOL
