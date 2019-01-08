@@ -1,0 +1,8 @@
+name: Filebeat
+description: |
+  Filebeat is a lightweight shipper for forwarding and centralizing log data. Installed as an agent on your servers, Filebeat monitors the log files or locations that you specify, collects log events, and forwards them to either to Elasticsearch or Logstash for indexing.
+version: 1.0.0
+category: Logging
+maintainer: Carsten Pfeiffer
+license: MIT
+projectURL: https://github.com/ipunkt/docker-firewall-port
