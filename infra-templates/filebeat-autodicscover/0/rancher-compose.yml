@@ -3,29 +3,29 @@ catalog:
   name: Filebeat Autodiscover
   version: 1.0.0
   description: Collects Logs for Elasticsearch
-minimum_rancher_version: 1.6.0
-questions:
-- variable: HOSTURL
-  label: Host
-  default: "elasticsearch:9200"
-  description: |
-    Your Host Adress for the Filebeat Logs
-  required: true
-  type: string
-- variable: PROTOCOL
-  label: Protocol
-  default: "http"
-  description: |
-    https or https
-  required: true
-  type: string
-- variable: ENVIRONMENT
-  label: Environment
-  default: "rancher"
-  description: |
-    Your Rancher Environment
-  required: false
-  type: string
+  minimum_rancher_version: 1.6.0
+  questions:
+    - variable: HOSTURL
+      label: Host
+      default: "elasticsearch:9200"
+      description: |
+        Your Host Adress for the Filebeat Logs
+      required: true
+      type: string
+    - variable: PROTOCOL
+      label: Protocol
+      default: "http"
+      description: |
+        https or https
+      required: true
+      type: string
+    - variable: ENVIRONMENT
+      label: Environment
+      default: "rancher"
+      description: |
+        Your Rancher Environment
+      required: false
+      type: string
 services:
   filebeat:
     start_on_create: true
