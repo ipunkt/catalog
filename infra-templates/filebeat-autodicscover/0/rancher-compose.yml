@@ -6,6 +6,10 @@ catalog:
 minimum_rancher_version: 1.6.0
 questions:
  - variable: HOSTURL
+   description: |
+     Yout Host Adress för the Filebeat Logs
+   default: "elasticsearch:9200"
+   required: true
  - variable: PROTOCOL
  - variable: ENVIRONMENT
 services:
