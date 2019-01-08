@@ -1,8 +1,8 @@
 version: '2'
 catalog:
-  name: Filebeat Autodiscover
-  version: 1.0.0
-  description: Collects Logs for Elasticsearch
+   name: Filebeat Autodiscover
+   version: 1.0.0
+   description: Collects Logs for Elasticsearch
 minimum_rancher_version: 1.6.0
 questions:
   - variable: HOSTURL
