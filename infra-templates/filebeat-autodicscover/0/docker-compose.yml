@@ -13,6 +13,5 @@ services:
     - /usr/share/filebeat/data:/usr/share/filebeat/data
     - /var/lib/docker/containers:/var/lib/docker/containers:ro
     - /var/run/docker.sock:/var/run/docker.sock
-    service_name:
     labels:
       io.rancher.scheduler.global: 'true'
