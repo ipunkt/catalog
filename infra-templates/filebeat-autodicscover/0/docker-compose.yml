@@ -1,7 +1,7 @@
 version: '2'
 services:
   filebeat:
-    image: ipunkt/docker-filebeat
+    image: carsten231286/filebeat-autodiscover
     environment:
       HOSTURL: "${HOSTURL}"
       ENVIRONMENT: "${ENVIRONMENT}"
