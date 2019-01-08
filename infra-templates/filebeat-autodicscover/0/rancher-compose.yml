@@ -16,7 +16,7 @@ catalog:
       label: Protocol
       default: "http"
       description: |
-        https or https
+        http or https
       required: true
       type: string
     - variable: ENVIRONMENT
