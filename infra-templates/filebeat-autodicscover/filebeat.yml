@@ -1,0 +1,28 @@
+spool_size : 8192
+publish_async: true
+filebeat.inputs:
+  - type: docker
+    enabled: true
+    containers.ids:
+      - '*'
+    fields_under_root: true
+    fields:
+        rancher.environment: ##ENVIRONMENT##      
+filebeat.autodiscover: ~
+processors:
+  - add_docker_metadata: ~
+  - rename:
+      fields:
+        - from: "docker.container.labels.io.rancher.stack_service.name"
+          to: "stack_service_container"
+output.elasticsearch:
+  hosts: ["##PROTOCOL##://##HOSTURL##"]
+  worker: 2
+  bulk_max_size: 4096
+  indices:
+    - index: "warning-%{[beat.version]}-%{+yyyy.MM.dd}"
+      when.contains:
+        message: "WARN"
+    - index: "error-%{[beat.version]}-%{+yyyy.MM.dd}"
+      when.contains:
+        message: "ERR"
