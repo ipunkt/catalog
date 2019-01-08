@@ -11,6 +11,7 @@ questions:
       Your Host Adress for the Filebeat Logs
     default: "elasticsearch:9200"
     required: true
+    type: string
   - variable: PROTOCOL
   - variable: ENVIRONMENT
 services:
