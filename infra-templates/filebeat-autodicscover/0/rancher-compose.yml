@@ -9,5 +9,5 @@ questions:
  - variable: PROTOCOL
  - variable: ENVIRONMENT
 services:
-  filebeat-autodisc:
+  filebeat:
     start_on_create: true
