@@ -1,4 +1,16 @@
 version: '2'
+catalog:
+  name: Filebeat Autodiscover
+  version: 1.0.0
+  description: Collects Logs for Elasticsearch
+minimum_rancher_version: 1.6.0
+questions:
+ - variable: HOSTURL
+   label: elasticsearch:9200
+ - variable: PROTOCOL
+   label: http
+ - variable: ENVIRONMENT
+   label: rancher
 services:
   filebeat-autodisc:
     start_on_create: true
