@@ -5,14 +5,14 @@ catalog:
   description: Collects Logs for Elasticsearch
 minimum_rancher_version: 1.6.0
 questions:
- - variable: HOSTURL
-   label: Host
-   description: |
-     Yout Host Adress for the Filebeat Logs
-   default: "elasticsearch:9200"
-   required: true
- - variable: PROTOCOL
- - variable: ENVIRONMENT
+  - variable: HOSTURL
+    label: Host
+    description: |
+      Your Host Adress for the Filebeat Logs
+    default: "elasticsearch:9200"
+    required: true
+  - variable: PROTOCOL
+  - variable: ENVIRONMENT
 services:
   filebeat:
     start_on_create: true
