@@ -2,7 +2,7 @@ version: '2'
 services:
   filebeat:
     image: ipunktbs/filebeat
-    mem_limit: 200m
+    mem_limit: 209715200
     environment:
       HOSTURL: "${HOSTURL}"
       ENVIRONMENT: "${ENVIRONMENT}"
@@ -14,6 +14,7 @@ services:
     - /usr/share/filebeat/data:/usr/share/filebeat/data
     - /var/lib/docker/containers:/var/lib/docker/containers:ro
     - /var/run/docker.sock:/var/run/docker.sock
+    mem_reservation: 52428800
     labels:
       io.rancher.scheduler.global: 'true'
       io.rancher.container.pull_image: always
