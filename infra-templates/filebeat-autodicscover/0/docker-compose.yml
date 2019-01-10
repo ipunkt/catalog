@@ -2,6 +2,7 @@ version: '2'
 services:
   filebeat:
     image: ipunktbs/filebeat
+    mem_limit: 200m
     environment:
       HOSTURL: "${HOSTURL}"
       ENVIRONMENT: "${ENVIRONMENT}"
