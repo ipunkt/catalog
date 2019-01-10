@@ -4,7 +4,7 @@ services:
     image: ipunktbs/filebeat
     mem_limit: 209715200
     cpu_period: 100000
-    cpu-quota: 25000
+    cpu_quota: 25000
     environment:
       HOSTURL: "${HOSTURL}"
       ENVIRONMENT: "${ENVIRONMENT}"
