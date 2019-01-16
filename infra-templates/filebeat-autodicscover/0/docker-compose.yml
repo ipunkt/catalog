@@ -9,7 +9,7 @@ services:
       HOSTURL: "${HOSTURL}"
       ENVIRONMENT: "${ENVIRONMENT}"
       PROTOCOL: "${PROTOCOL}"
-      USERNAME: "{USERNAME}"
+      USERNAME: "${USERNAME}"
       PASSWORD: "${PASSWORD}"
     command: "--strict.perms=false -v -e -d autodiscover,docker"
     user: root
