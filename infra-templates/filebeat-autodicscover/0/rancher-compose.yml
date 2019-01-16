@@ -31,11 +31,13 @@ catalog:
       description: |
         HTTP Auth Username
       required: false
-          - variable: PASSWORD
+      type: string
+    - variable: PASSWORD
       label: Password
       description: |
         HTTP Auth Password
       required: false
+      type: string
 services:
   filebeat:
     start_on_create: true
