@@ -26,6 +26,16 @@ catalog:
         Your Rancher Environment
       required: false
       type: string
+    - variable: USERNAME
+      label: Username
+      description: |
+        HTTP Auth Username
+      required: false
+          - variable: PASSWORD
+      label: Password
+      description: |
+        HTTP Auth Password
+      required: false
 services:
   filebeat:
     start_on_create: true
