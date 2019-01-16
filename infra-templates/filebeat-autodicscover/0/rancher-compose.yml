@@ -28,12 +28,14 @@ catalog:
       type: string
     - variable: USERNAME
       label: Username
+      default: "USER"
       description: |
         HTTP Auth Username
       required: false
       type: string
     - variable: PASSWORD
       label: Password
+      default: "PASSW"
       description: |
         HTTP Auth Password
       required: false
