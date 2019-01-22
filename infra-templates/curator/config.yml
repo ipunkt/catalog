@@ -1,0 +1,6 @@
+name: Curator
+description: Elasticsearch Curator helps you curate, or manage, your Elasticsearch indices and snapshots.
+version: 1.0.0
+category: Logging
+maintainer: Carsten Pfeiffer
+license: MIT

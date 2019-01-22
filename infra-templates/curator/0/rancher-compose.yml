@@ -1,0 +1,73 @@
+version: '2'
+catalog:
+  name: Curator
+  version: 1.0.0
+  description: Elasticsearch Curator helps you curate, or manage, your Elasticsearch indices and snapshots. 
+  minimum_rancher_version: 1.6.0
+  questions:
+    - variable: HOST
+      label: Host
+      default: ""
+      description: |
+        Elastic Host Adress (Data or Client)
+      required: true
+      type: string
+    - variable: HOST2
+      label: Host2
+      default: ""
+      description: |
+        2nd Elastic Host Adress (Data oder Client)
+      required: true
+      type: string
+    - variable: PORT
+      label: Port
+      default: "9200"
+      description: |
+        Elasticsearch Port
+      required: true
+      type: string
+    - variable: USERNAME
+      label: Username
+      default: "USER"
+      description: |
+        HTTP Auth. Username
+      required: false
+      type: string
+    - variable: PASSWORD
+      label: Password
+      default: "PASSW"
+      description: |
+        HTTP Auth. Password
+      required: false
+      type: string
+    - variable: SSL
+      label: SSL Connect
+      default: "False"
+      description: |
+        SSL Connection true or false
+      required: true
+      type: string
+    - variable: SKIP_SSL
+      label: Skip SSL Validation
+      default: "False"
+      description: |
+        Skips SSL Valitaion
+      required: true
+      type: string
+    - variable: CLOSE_COUNT
+      label: Close Indicies
+      default: "7"
+      description: |
+        Days until closing Indicies (RAM)
+      required: true
+      type: string
+    - variable: DELETE_COUNT
+      label: Delete Indicies
+      default: "14"
+      description: |
+        Days until deleting old Indicies from Hard Disk
+      required: true
+      type: string
+services:
+  filebeat:
+start_on_create: true
