@@ -1,5 +1,5 @@
 version: '2'
-  curator:      
+services:      
     image: carsten231286/curator
     environment:
       PORT: "${PORT}"
