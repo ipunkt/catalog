@@ -1,7 +1,7 @@
 version: '2'
 services:
   curator:
-   image: carsten231286/curator:latest
+   image: carsten231286/curator
    environment:
       PORT: "${PORT}"
       USERNAME: "${USERNAME}"
