@@ -3,12 +3,12 @@ services:
   curator:
    image: carsten231286/curator
    environment:
-     PORT: "${PORT}"
-     USERNAME: "${USERNAME}"
-     PASSWORD: "${PASSWORD}"
-     HOST: "${HOST}"
-     HOST2: "${HOST2}"
-     SSL: "${SSL}"
-     SKIP_SSL: "${SKIP_SSL}"
-     CLOSE_COUNT: "${CLOSE_COUNT}"
-     DELETE_COUNT: "${DELETE_COUNT}"
+      PORT: "${PORT}"
+      USERNAME: "${USERNAME}"
+      PASSWORD: "${PASSWORD}"
+      HOST: "${HOST}"
+      HOST2: "${HOST2}"
+      SSL: "${SSL}"
+      SKIP_SSL: "${SKIP_SSL}"
+      CLOSE_COUNT: "${CLOSE_COUNT}"
+      DELETE_COUNT: "${DELETE_COUNT}"
