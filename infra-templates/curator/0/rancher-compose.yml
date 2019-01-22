@@ -69,5 +69,5 @@ catalog:
       required: true
       type: string
 services:
-  Curator:
+  curator:
     start_on_create: false
