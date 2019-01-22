@@ -9,7 +9,7 @@ catalog:
       label: Host
       default: "elasticsearch:9200"
       description: |
-        Your Host Adress for the Filebeat Logs
+        Your Host with Port for the Filebeat Logs (Adress:Port)
       required: true
       type: string
     - variable: PROTOCOL
