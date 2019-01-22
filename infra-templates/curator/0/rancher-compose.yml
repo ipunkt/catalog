@@ -70,4 +70,4 @@ catalog:
       type: string
 services:
   Curator:
-start_on_create: false
+    start_on_create: false
