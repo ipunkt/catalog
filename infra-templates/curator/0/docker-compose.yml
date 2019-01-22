@@ -13,3 +13,5 @@ services:
       SKIP_SSL: "${SKIP_SSL}"
       CLOSE_COUNT: "${CLOSE_COUNT}"
       DELETE_COUNT: "${DELETE_COUNT}"
+    labels:
+      io.rancher.container.start_once: 'true
