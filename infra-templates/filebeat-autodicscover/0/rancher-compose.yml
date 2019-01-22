@@ -16,14 +16,14 @@ catalog:
       label: Protocol
       default: "http"
       description: |
-        http or https
+        http or https Protocol
       required: true
       type: string
     - variable: ENVIRONMENT
       label: Environment
       default: "rancher"
       description: |
-        Your Rancher Environment
+        Name of your Rancher Environment your collecting Logs
       required: false
       type: string
     - variable: USERNAME
