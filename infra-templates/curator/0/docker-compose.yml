@@ -1,6 +1,4 @@
 version: "2"
-
-services:
   curator:      
     image: carsten231286/curator
     environment:
