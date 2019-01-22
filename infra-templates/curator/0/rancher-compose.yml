@@ -7,21 +7,21 @@ catalog:
   questions:
     - variable: HOST
       label: Host
-      default: "Elasticsearch-Client"
+      default: ""
       description: |
         Elastic Host Adress (Data or Client)
       required: true
       type: string
     - variable: HOST2
       label: Host2
-      default: "Elasticsearch-Data"
+      default: ""
       description: |
         2nd Elastic Host Adress (Data oder Client)
       required: true
       type: string
     - variable: PORT
       label: Port
-      default: "9200"
+      default: "443"
       description: |
         Elasticsearch Port
       required: true
@@ -35,14 +35,14 @@ catalog:
       type: string
     - variable: PASSWORD
       label: Password
-      default: "PASSW"
+      default: "PASSWORD"
       description: |
         HTTP Auth. Password
       required: false
       type: string
     - variable: SSL
       label: SSL Connect
-      default: "False"
+      default: "True"
       description: |
         SSL Connection true or false
       required: true
@@ -69,5 +69,5 @@ catalog:
       required: true
       type: string
 services:
-  filebeat:
-start_on_create: true
+  Curator:
+start_on_create: false
