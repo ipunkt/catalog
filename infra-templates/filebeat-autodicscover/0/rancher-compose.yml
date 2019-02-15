@@ -7,18 +7,11 @@ catalog:
   questions:
     - variable: HOSTURL
       label: Host
-      default: "elasticsearch:9200"
+      default: "http://elasticsearch:9200"
       description: |
         Your Host with Port for the Filebeat Logs (Adress:Port)
       required: true
-      type: string
-    - variable: PROTOCOL
-      label: Protocol
-      default: "http"
-      description: |
-        http or https Protocol
-      required: true
-      type: string
+      : string
     - variable: ENVIRONMENT
       label: Environment
       default: "rancher"
@@ -39,7 +32,7 @@ catalog:
       description: |
         HTTP Auth Password
       required: false
-      type: string
+      type: password
 services:
   filebeat:
     start_on_create: true
