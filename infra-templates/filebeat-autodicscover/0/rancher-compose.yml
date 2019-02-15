@@ -28,7 +28,6 @@ catalog:
       type: string
     - variable: PASSWORD
       label: Password
-      default: "PASSW"
       description: |
         HTTP Auth Password
       required: false
