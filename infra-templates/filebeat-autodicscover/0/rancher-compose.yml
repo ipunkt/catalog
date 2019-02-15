@@ -11,7 +11,7 @@ catalog:
       description: |
         Your Host with Port for the Filebeat Logs (Adress:Port)
       required: true
-      : string
+      type: string
     - variable: ENVIRONMENT
       label: Environment
       default: "rancher"
