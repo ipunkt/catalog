@@ -93,6 +93,12 @@ catalog:
         Leave empty
       required: false
       type: multiline
+    - variable: SSH_EXTRA_PUBKEYS
+      label: Extra public ssh keys
+      description: |
+        Extra public keys. They will be added to the machines\' root authorized_keys
+      required: false
+      type: multiline
 services:
   Balancer:
     start_on_create: true
