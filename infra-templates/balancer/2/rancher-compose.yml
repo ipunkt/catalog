@@ -12,6 +12,21 @@ catalog:
       default: lb01:lb02
       required: true
       type: string
+    - variable: SERVER_SIZE
+      label: Server size
+      description: |
+        hetzner cloud server size to be created. Changing this after the hosts
+        have been built will not change the type.
+        Scaling them manually can be done but is not supported by this service
+        as of yet
+      default: cx11
+      required: true
+      type: enum
+      options:
+        - cx21
+        - cx31
+        - cx41
+        - cx51
     - variable: HCLOUD_TOKEN
       label: Hetzner Cloud token
       description: |
