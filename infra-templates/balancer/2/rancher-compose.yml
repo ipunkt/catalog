@@ -23,6 +23,7 @@ catalog:
       required: true
       type: enum
       options:
+        - cx11
         - cx21
         - cx31
         - cx41
