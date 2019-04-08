@@ -4,7 +4,7 @@ volumes:
     driver: ${VOLUME_DRIVER}
 services:
   MySQL:
-    image: "ipunktbs/hetzner-mariadb:1.4.0rc1"
+    image: "ipunktbs/hetzner-mariadb:1.4.0"
     restart: "no"
     environment:
       MARIADB_VERSION: "${MARIADB_VERSION}"
