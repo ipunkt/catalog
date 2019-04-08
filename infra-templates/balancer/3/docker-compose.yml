@@ -4,7 +4,7 @@ volumes:
     driver: ${VOLUME_DRIVER}
 services:
   Balancer:
-    image: "ipunktbs/hetzner-lb:1.3.0"
+    image: "ipunktbs/hetzner-lb:1.3.1"
     restart: "no"
     environment:
       SERVERS: "${SERVERS}"
