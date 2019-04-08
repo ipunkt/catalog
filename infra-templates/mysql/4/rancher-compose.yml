@@ -1,0 +1,215 @@
+version: '2'
+catalog:
+  name: MySQL
+  version: "1.1.0"
+  description: Create highly available mysql on cloud hosts
+  minimum_rancher_version: 1.6.0
+  questions:
+    - variable: MARIADB_VERSION
+      label: Mariadb version
+      description: |
+        Version of mariadb to be installed. distribution is the version currently shipped with debian 9, while the others
+        are versions taken from the official mariadb repository
+      default: "10.3"
+      required: true
+      type: enum
+      options:
+        - distribution
+        - "10.1"
+        - "10.2"
+        - "10.3"
+    - variable: EXTERNAL_STACK
+      label: External stack
+      description: |
+        Stack in which the services creates the external to the floating ip shared
+        by the created servers
+      default: Database
+      required: true
+      type: string
+    - variable: EXTERNAL_NAME
+      label: External name
+      description: |
+        Name of the external this service creates with the floating ip shared by
+        the created servers
+      default: mysql
+      required: true
+      type: string
+    - variable: SERVER1
+      label: Server1 Hostname
+      description: |
+        Host- and Apiname of the first cloudserver to be creatd
+      default: mysql01
+      required: true
+      type: string
+    - variable: SERVER2
+      label: Server2 Hostname
+      description: |
+        Host- and Apiname of the first cloudserver to be creatd
+      default: mysql02
+      required: true
+      type: string
+    - variable: SERVER_TYPE
+      label: Server type
+      description: |
+        hetzner cloud server type to be created. Changing this after the hosts
+        have been built will not change the type.
+        Scaling them manually can be done but is not supported by this service
+        as of yet
+      default: cx21
+      required: true
+      type: enum
+      options:
+        - cx21
+        - cx31
+        - cx41
+        - cx51
+    - variable: SERVER_LOCATION
+      label: Server location
+      description: |
+        datacenter for the server to be created in. Changing this after the hosts
+        have been built will not change the type.
+        Scaling them manually can be done but is not supported by this service
+        as of yet
+      default: fsn1
+      required: true
+      type: enum
+      options:
+        - fsn1
+        - nbg1
+        - hel1
+    - variable: HCLOUD_TOKEN
+      label: Hetzner Cloud token
+      description: |
+        Hetzner cloud token to create the hosts and manage the floating ip with
+      required: true
+      type: string
+    - variable: ADMIN_USERNAME
+      label: MySQL admin user
+      description: |
+        Username for the admin user of the database.
+        Note that this user will be recreated on each run of the image so setting
+        this to something insecure and later deleting or changing the user will
+        not work
+      required: true
+      type: string
+      default: admin
+    - variable: ADMIN_PASSWORD
+      label: MySQL admin password
+      description: |
+        Password for the admin user of the database.
+        Note that this user will be recreated on each run of the image so setting
+        this to something insecure and later deleting or changing the user will
+        not work
+      required: true
+      type: string
+    - variable: VOLUME
+      default: clusterini
+      label: Volume Name
+      description: |
+        The name of the volume in which the generated information is stored. See `Persistence` in the information above
+      required: true
+      type: string
+    - variable: VOLUME_DRIVER
+      default: rancher-nfs
+      label: Volume Driver
+      description: |
+        The volume driver for the generated information. See `Persistence` in the information above
+      required: true
+      type: string
+    - variable: VOLUME_MOUNT_OPTIONS
+      default:
+      label: Mount options
+      description: |
+        The mount options. use `:slave` for the rancher-nfs driver. Otherwise using the empty option should be fine.
+      required: true
+      type: enum
+      options:
+        - ':slave'
+        - ''
+    - variable: FLOATING_IP
+      default: mysql
+      label: Floating IP api and pacemaker resource name
+      description: |
+        This name will be used as subscription on the foating ip address. DO NOT EDIT THIS AFTERWARDS
+        If no floating ip with this description is present then one will be created.
+      required: true
+      type: string
+    - variable: FLOATING_IP_MONITOR_INTERVAL
+      default: 40
+      label: floating ip monitor interval
+      description: |
+        This decides the interval in which the floating ip is checked and made sure it is pointing to the right server.
+        This is mainly governed by the api request limit of hetzner cloud. Leave on default unless you know what you're doing
+      required: true
+      type: int
+    - variable: FLOATING_IP_MONITOR_TIMEOUT
+      default: 120
+      label: floating ip monitor timeout
+      description: |
+        This is the timeout for the check if the floating ip is pointing to the right server.
+        It does not hold any relevance to the normal running. Instead it is a fault tolerance for the cloud api being
+        unreachable
+      required: true
+      type: int
+    - variable: CLUSTER_USER_PASSWORD
+      default:
+      label: Cluster User Password
+      description: |
+        Password for the cluster user used to authenticate the machines among eachother.
+      required: false
+      type: string
+    - variable: PRIVATE_KEY
+      label: Private SSH key
+      description: |
+        Private ssh key matching the PUBLIC_KEY
+      required: false
+      type: multiline
+    - variable: PUBLIC_KEY
+      label: Public SSH key
+      description: |
+        Public ssh key matching the Private ssh key. Will be added to the machines\' root authorized_keys.
+        Leave empty
+      required: false
+      type: multiline
+    - variable: SSH_EXTRA_PUBKEYS
+      label: Extra public ssh keys
+      description: |
+        Extra public keys. They will be added to the machines\' root authorized_keys
+      required: false
+      type: multiline
+    - variable: BACKUPS
+      label: Write backups
+      description: |
+        If enabled then
+      required: true
+      type: boolean
+    - variable: BACKUP_SERVER
+      label: Backup Server
+      description: |
+        SFtp Backup Server
+      required: false
+      default: sftp.example.com
+      type: string
+    - variable: BACKUP_PATH
+      label: Backup Directory
+      description: |
+        SFtp backup directory
+      required: false
+      default: /backup
+      type: string
+    - variable: BACKUP_USER
+      label: Backup User
+      description: |
+        Backup User
+      required: false
+      default: backup
+      type: string
+    - variable: BACKUP_KEY
+      label: Private SSH key used to connect to the backup sftp server
+      description: |
+        Private ssh key matching
+      required: false
+      type: multiline
+services:
+  MySQL:
+    start_on_create: true

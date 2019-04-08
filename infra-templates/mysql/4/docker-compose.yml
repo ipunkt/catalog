@@ -1,0 +1,41 @@
+version: '2'
+volumes:
+  {{ .Values.VOLUME }}:
+    driver: ${VOLUME_DRIVER}
+services:
+  MySQL:
+    image: "ipunktbs/hetzner-mariadb:1.3.0"
+    restart: "no"
+    environment:
+      MARIADB_VERSION: "${MARIADB_VERSION}"
+      ADMIN_USERNAME: "${ADMIN_USERNAME}"
+      ADMIN_PASSWORD: "${ADMIN_PASSWORD}"
+      EXTERNAL_STACK: "${EXTERNAL_STACK}"
+      EXTERNAL_NAME: "${EXTERNAL_NAME}"
+      SERVER1: "${SERVER1}"
+      SERVER2: "${SERVER2}"
+      SERVER_TYPE: "${SERVER_TYPE}"
+      HCLOUD_TOKEN: "${HCLOUD_TOKEN}"
+      FLOATING_IP: "${FLOATING_IP}"
+      FLOATING_IP_MONITOR_INTERVAL: "${FLOATING_IP_MONITOR_INTERVAL}"
+      FLOATING_IP_MONITOR_TIMEOUT: "${FLOATING_IP_MONITOR_TIMEOUT}"
+      SSH_EXTRA_PUBKEYS: |-
+        ${SSH_EXTRA_PUBKEYS}
+      CLUSTER_USER_PASSWORD: "${CLUSTER_USER_PASSWORD}"
+      PRIVATE_KEY: |-
+        ${PRIVAT_KEY}
+      PUBLIC_KEY: |-
+        ${PUBLIC_KEY}
+      BACKUP: ${BACKUPS}
+      BACKUP_SERVER: "${BACKUP_SERVER}"
+      BACKUP_PATH: "${BACKUP_PATH}"
+      BACKUP_USER: "${BACKUP_USER}"
+      BACKUP_KEY:  |-
+        ${BACKUP_KEY}
+    volumes:
+      - "${VOLUME}:/data${VOLUME_MOUNT_OPTIONS}"
+    labels:
+      io.rancher.container.create_agent: true
+      io.rancher.container.agent.role: environmentAdmin,agent
+      io.rancher.container.start_once: true
+      io.rancher.container.pull_image: always
