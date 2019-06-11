@@ -4,7 +4,7 @@ volumes:
     driver: ${VOLUME_DRIVER}
 services:
   MySQL:
-    image: "ipunktbs/hetzner-mariadb:1.4.0"
+    image: "ipunktbs/hetzner-mariadb:1.5.0"
     restart: "no"
     environment:
       MARIADB_VERSION: "${MARIADB_VERSION}"
@@ -22,6 +22,7 @@ services:
       SSH_EXTRA_PUBKEYS: |-
         ${SSH_EXTRA_PUBKEYS}
       CLUSTER_USER_PASSWORD: "${CLUSTER_USER_PASSWORD}"
+      CLUSTER_TIMEOUT: "${CLUSTER_TIMEOUT}"
       PRIVATE_KEY: |-
         ${PRIVAT_KEY}
       PUBLIC_KEY: |-

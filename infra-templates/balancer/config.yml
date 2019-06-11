@@ -1,7 +1,7 @@
 name: Hetzner Cloud Loadbalancer
 description: |
   Create 2 hosts in hetzner cloud sharing a floating ip to do high availaibility load balancing
-version: 0.2.0
+version: 0.3.0
 category: Loadbalancer
 labels:
   io.rancher.orchestration.supported: 'cattle'

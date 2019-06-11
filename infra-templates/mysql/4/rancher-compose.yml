@@ -1,7 +1,7 @@
 version: '2'
 catalog:
   name: MySQL
-  version: "1.2.0"
+  version: "1.1.0"
   description: Create highly available mysql on cloud hosts
   minimum_rancher_version: 1.6.0
   questions:
@@ -150,15 +150,6 @@ catalog:
         It does not hold any relevance to the normal running. Instead it is a fault tolerance for the cloud api being
         unreachable
       required: true
-      type: int
-    - variable: CLUSTER_TIMEOUT
-      default: 10000
-      label: Cluster Timeout
-      description: |
-        Timeout between receiving a ping from a node and the cluster throwing out the node for being silent for too long.
-        Note that while network connections allow for values far bellow the default 10 seconds host load can also cause
-        this timeout to be reached. And on cloud nodes you're usually on vhosts and do not fully control your node load.
-      required: false
       type: int
     - variable: CLUSTER_USER_PASSWORD
       default:
