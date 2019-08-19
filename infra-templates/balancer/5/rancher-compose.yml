@@ -1,0 +1,130 @@
+version: '2'
+catalog:
+  name: Balancer
+  version: 1.4.2
+  description: Create loadbalancer hosts
+  minimum_rancher_version: 1.6.0
+  questions:
+    - variable: SERVERS
+      label: Hostnames
+      description: |
+        Colon separated list of hostnames which will be created
+      default: lb01:lb02
+      required: true
+      type: string
+    - variable: SERVER_SIZE
+      label: Server size
+      description: |
+        hetzner cloud server size to be created. Changing this after the hosts
+        have been built will not change the type.
+        Scaling them manually can be done but is not supported by this service
+        as of yet
+      default: cx11
+      required: true
+      type: enum
+      options:
+        - cx11
+        - cx21
+        - cx31
+        - cx41
+        - cx51
+    - variable: HCLOUD_TOKEN
+      label: Hetzner Cloud token
+      description: |
+        Hetzner cloud token to create the hosts and manage the floating ip with
+      required: true
+      type: string
+    - variable: VOLUME
+      default: clusterini
+      label: Volume Name
+      description: |
+        The name of the volume in which the generated information is stored. See `Persistence` in the information above
+      required: true
+      type: string
+    - variable: VOLUME_DRIVER
+      default: rancher-nfs
+      label: Volume Driver
+      description: |
+        The volume driver for the generated information. See `Persistence` in the information above
+      required: true
+      type: string
+    - variable: VOLUME_MOUNT_OPTIONS
+      default:
+      label: Mount options
+      description: |
+        The volume driver for the generated information. See `Persistence` in the information above
+      required: true
+      type: enum
+      options:
+        - ''
+        - ':slave'
+    - variable: HOST_LABELS
+      default: lb=true
+      label: Host Labels
+      description: |
+        The Host labels which will be set on the rancher host entries.
+        Format: Labelname=Labelvalue
+        Multiple labels are separated by `&`
+    - variable: FLOATING_IP
+      default: Loadbalancer
+      label: Floating IP Name
+      description: |
+        This name will be used as subscription on the foating ip address. DO NOT EDIT THIS AFTERWARDS
+        If no floating ip with this description is present then one will be created.
+      required: true
+      type: string
+    - variable: FLOATING_IP_MONITOR_INTERVAL
+      default: 40
+      label: floating ip monitor interval
+      description: |
+        This decides the interval in which the floating ip is checked and made sure it is pointing to the right server.
+        This is mainly governed by the api request limit of hetzner cloud. Leave on default unless you know what you're doing
+      required: true
+      type: int
+    - variable: FLOATING_IP_MONITOR_TIMEOUT
+      default: 120
+      label: floating ip monitor timeout
+      description: |
+        This is the timeout for the check if the floating ip is pointing to the right server.
+        It does not hold any relevance to the normal running. Instead it is a fault tolerance for the cloud api being
+        unreachable
+      required: true
+      type: int
+    - variable: CLUSTER_TIMEOUT
+      default: 10000
+      label: Cluster Timeout
+      description: |
+        Timeout between receiving a ping from a node and the cluster throwing out the node for being silent for too long.
+        Note that while network connections allow for values far bellow the default 10 seconds host load can also cause
+        this timeout to be reached. And on cloud nodes you're usually on vhosts and do not fully control your node load.
+      required: false
+      type: int
+    - variable: CLUSTER_USER_PASSWORD
+      default:
+      label: Cluster User Password
+      description: |
+        Password for the cluster user used to authenticate the machines among eachother.
+      required: false
+      type: string
+    - variable: PRIVATE_KEY
+      label: Private SSH key
+      description: |
+        Private ssh key matching the PUBLIC_KEY
+      required: false
+      type: multiline
+    - variable: PUBLIC_KEY
+      label: Public SSH key
+      description: |
+        Public ssh key matching the Private ssh key. Will be added to the machines\' root authorized_keys.
+        Leave empty
+      required: false
+      type: multiline
+    - variable: SSH_EXTRA_PUBKEYS
+      label: Extra public ssh keys
+      description: |
+        Extra public keys. They will be added to the machines\' root authorized_keys
+      required: false
+      type: multiline
+services:
+  Balancer:
+    start_on_create: true
