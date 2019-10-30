@@ -35,7 +35,7 @@ catalog:
       type: int
     - variable: SLEEP
       label: Time in between checks
-      default: "600"
+      default: "300"
       description: |
         Time to sleep in between checks in seconds
       required: true
