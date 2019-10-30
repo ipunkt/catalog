@@ -1,0 +1,38 @@
+version: '2'
+catalog:
+  name: DiskMonitor
+  version: 1.0.0
+  description: Send warnings to slack when disk usage on a nodes' root partition rises above a certain threshold
+  minimum_rancher_version: 1.6.0
+  questions:
+    - variable: SLACK_URL
+      label: slack webhook url
+      default: ""
+      description: |
+        Url to the slack webhook to send the messages to
+      required: true
+      type: string
+    - variable: SLACK_NOTIFY_USERS
+      label: user notifications
+      default: ""
+      description: |
+        comma separated list of users to notify in the messages
+      required: false
+      type: string
+    - variable: THRESHOLD
+      label: Disk use percent threshold to start warning
+      default: "90"
+      description: |
+        Warnings will be sent once the disk usage percent rises above this number, where 90 = 90%
+      required: true
+      type: int
+    - variable: SLEEP
+      label: Time in between checks
+      default: "600"
+      description: |
+        Time to sleep in between checks in seconds
+      required: true
+      type: int
+services:
+  curator:
+    start_on_create: false

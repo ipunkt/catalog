@@ -1,0 +1,14 @@
+version: '2'
+services:
+  monitor:
+   image: ipunktbs/diskmonitor:latest
+   environment:
+      SLACK_URL: "${SLACK_URL}"
+      SLACK_NOTIFY_USERS: "${SLACK_NOTIFY_USERS}"
+      SLEEP: "${SLEEP}s"
+      THRESHOLD: "${THRESHOLD}"
+      HOSTFILE: "/target/etc/hostname"
+    volumes:
+    - /etc:/target/etc
+    labels:
+      io.rancher.scheduler.global: 'true'

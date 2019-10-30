@@ -1,0 +1,6 @@
+name: DiskMonitor
+description: Send warnings to slack when disk usage on a nodes' root partition rises above a certain threshold
+version: 1.0.0
+category: Logging
+maintainer: Sven Speckmaier
+license: MIT
