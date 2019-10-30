@@ -9,6 +9,6 @@ services:
       THRESHOLD: "${THRESHOLD}"
       HOSTFILE: "/target/etc/hostname"
   volumes:
-  - /etc:/target/etc
+  - '/etc:/target/etc'
   labels:
     io.rancher.scheduler.global: 'true'
