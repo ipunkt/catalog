@@ -5,6 +5,13 @@ catalog:
   description: Send warnings to slack when disk usage on a nodes' root partition rises above a certain threshold
   minimum_rancher_version: 1.6.0
   questions:
+    - variable: ENVIRONMENT
+      label: Environment
+      default: ""
+      description: |
+        Environment to append to the host name info
+      required: false
+      type: string
     - variable: SLACK_URL
       label: slack webhook url
       default: ""
