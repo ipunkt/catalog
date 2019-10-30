@@ -34,5 +34,5 @@ catalog:
       required: true
       type: int
 services:
-  curator:
+  monitor:
     start_on_create: false
