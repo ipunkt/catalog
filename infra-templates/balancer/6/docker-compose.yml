@@ -8,6 +8,7 @@ services:
     restart: "no"
     environment:
       SERVERS: "${SERVERS}"
+      SERVER_SIZE: "${SERVER_SIZE}"
       HCLOUD_TOKEN: "${HCLOUD_TOKEN}"
       HOST_LABELS: "${HOST_LABELS}"
       FLOATING_IP: "${FLOATING_IP}"
