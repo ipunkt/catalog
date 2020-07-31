@@ -1,0 +1,18 @@
+version: '2'
+services:
+  FireExtinguisher:
+    image: ipunktbs/ansible-ufw:1.1.0
+    environment:
+      HOSTS: ${HOSTS}
+      PORTS: ${PORTS}
+      UFW_USER: ${USER}
+      UFW_PRIVATE_KEY: |-
+        ${PRIVATE_KEY}
+      UFW_PASSWORD: ${SUDO_PASSWORD}
+    stdin_open: true
+    network_mode: host
+    tty: true
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.global: 'true'
